@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Christmas Theme</title>
+    <link href="https://fonts.googleapis.com/css?family=Product+Sans:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0f7fa 0%, #fff8e1 100%);
+            font-family: 'Product Sans', Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .google-logo {
+            font-size: 5rem;
+            font-weight: bold;
+            letter-spacing: -8px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .google-logo span {
+            display: inline-block;
+            position: relative;
+        }
+        .g { color: #4285F4; }
+        .o1 { color: #EA4335; }
+        .o2 { color: #FBBC05; }
+        .g2 { color: #34A853; }
+        .l { color: #FBBC05; }
+        .e { color: #EA4335; }
+        /* Santa hat */
+        .santa-hat {
+            position: absolute;
+            top: -45px;
+            left: 0;
+            width: 55px;
+            height: 40px;
+            z-index: 1;
+            pointer-events: none;
+        }
+        /* Snowflakes */
+        .snowflake {
+            position: fixed;
+            top: -50px;
+            color: #fff;
+            font-size: 1.5em;
+            opacity: 0.8;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(110vh);
+            }
+        }
+        /* Christmas lights */
+        .lights {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .bulb {
+            width: 16px;
+            height: 24px;
+            border-radius: 50% 50% 60% 60%;
+            margin: 0 6px;
+            background: red;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            border: 2px solid #333;
+            position: relative;
+            animation: blink 1.5s infinite alternate;
+        }
+        .bulb:nth-child(2) { background: #34A853; animation-delay: 0.3s;}
+        .bulb:nth-child(3) { background: #FBBC05; animation-delay: 0.6s;}
+        .bulb:nth-child(4) { background: #4285F4; animation-delay: 0.9s;}
+        .bulb:nth-child(5) { background: #EA4335; animation-delay: 1.2s;}
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+    </style>
+</head>
+<body>
+    <div class="lights">
+        <div class="bulb"></div>
+        <div class="bulb"></div>
+        <div class="bulb"></div>
+        <div class="bulb"></div>
+        <div class="bulb"></div>
+    </div>
+    <div class="google-logo">
+        <span class="g">G</span>
+        <span class="o1">o</span>
+        <span class="o2">
+            o
+            <svg class="santa-hat" viewBox="0 0 60 40">
+                <ellipse cx="30" cy="38" rx="14" ry="6" fill="#fff"/>
+                <path d="M10 38 Q30 0 50 38 Z" fill="#EA4335"/>
+                <circle cx="30" cy="8" r="8" fill="#fff"/>
+            </svg>
+        </span>
+        <span class="g2">g</span>
+        <span class="l">l</span>
+        <span class="e">e</span>
+    </div>
+    <script>
+        // Snowflake animation
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.fontSize = (Math.random() * 1.5 + 1) + 'em';
+            snowflake.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            snowflake.textContent = '❄';
+            document.body.appendChild(snowflake);
+            setTimeout(() => snowflake.remove(), 5000);
+        }
+        setInterval(createSnowflake, 300);
+    </script>
+</body>
+</html></svg>
